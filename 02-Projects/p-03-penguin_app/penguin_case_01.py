@@ -33,41 +33,45 @@ sex = st.selectbox(
     options = ['Female', 'Male']
 )
 
-# bill_length, bill_depth, flipper_length, body_mass
-bill_length = st.slider("Bill Length (mm)", 20, 60, 40)
+with st.form(key="penguin"):
+    # bill_length, bill_depth, flipper_length, body_mass
+    bill_length = st.slider("Bill Length (mm)", 20, 60, 40)
 
-bill_depth = st.slider("Bill Depth (mm) ", 10, 40, 25)
+    bill_depth = st.slider("Bill Depth (mm) ", 10, 40, 25)
 
-flipper_length = st.slider("Flipper Length (mm) ", 170, 240, 200)
+    flipper_length = st.slider("Flipper Length (mm) ", 170, 240, 200)
 
-body_mass = st.slider("Body Mass (g) ", 2900, 5000, 3500)
+    body_mass = st.slider("Body Mass (g) ", 2900, 5000, 3500)
 
-st.write("### 用户输入的特征数据：{}".format([island, sex, bill_depth, bill_length, flipper_length, body_mass]))
+    st.write("### 用户输入的特征数据：{}".format([island, sex, bill_depth, bill_length, flipper_length, body_mass]))
 
-# 将 island 和 sex 转换 one-hot
-island_Biscoe, island_Dream, island_Torgersen = 0, 0, 0
-if island == 'Biscoe':
-    island_Biscoe = 1
-elif island == 'Dream':
-    island_Dream = 1
-elif island == 'Torgerson':
-    island_Torgersen = 1
+    submitted = st.form_submit_button("提交: 开始预测企业类别")
 
-sex_female, sex_male = 0, 0
-if sex == 'Female':
-    sex_female = 1
-elif sex == 'Male':
-    sex_male = 1
+    if submitted:
+        # 将 island 和 sex 转换 one-hot
+        island_Biscoe, island_Dream, island_Torgersen = 0, 0, 0
+        if island == 'Biscoe':
+            island_Biscoe = 1
+        elif island == 'Dream':
+            island_Dream = 1
+        elif island == 'Torgerson':
+            island_Torgersen = 1
 
-# 将所有特征合并起来
-temp_feature = [bill_length, bill_depth, flipper_length, body_mass, island_Biscoe, island_Dream, island_Torgersen,
-                sex_female, sex_male]
+        sex_female, sex_male = 0, 0
+        if sex == 'Female':
+            sex_female = 1
+        elif sex == 'Male':
+            sex_male = 1
 
-# 模型预测
-new_prediction = rfc_model.predict([temp_feature])
+        # 将所有特征合并起来
+        temp_feature = [bill_length, bill_depth, flipper_length, body_mass, island_Biscoe, island_Dream, island_Torgersen,
+                        sex_female, sex_male]
 
-# 预测的企鹅类别
-predict_species = label_names[new_prediction][0]
+        # 模型预测
+        new_prediction = rfc_model.predict([temp_feature])
 
-st.write("### 模型的预测类别: ", predict_species)
+        # 预测的企鹅类别
+        predict_species = label_names[new_prediction][0]
+
+        st.write("### 模型的预测类别: ", predict_species)
 
