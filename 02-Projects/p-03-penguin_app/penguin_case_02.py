@@ -29,7 +29,7 @@ input_df = None # 默认值
 # * 如果上传成功，则按照之前的数据处理的流程走一遍；否则，直接调用之前的模型文件
 if uploader_file is None:
     # 加载模型
-    with open("rfc_model.pickle", "rb") as file:
+    with open("02-Projects/p-03-penguin_app/rfc_model.pickle", "rb") as file:
         model = pickle.load(file)
         st.write("### rfc model : \n", model)
     # 加载标签名称
