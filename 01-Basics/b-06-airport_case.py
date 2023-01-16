@@ -38,7 +38,7 @@ st.markdown("""
 # 4. 在页面上显示以下代码块
 st.markdown("### 4. 在页面上显示代码块（根据经纬度计算距离）")
 with st.echo():
-    df = pd.read_csv("data/airport_location.csv")
+    df = pd.read_csv("01-Basics/data/airport_location.csv")
 st.write(df)
 """半正弦 Haversine distance \n
 半正弦距离是给定经度和纬度的球体上两点之间的距离。它与欧几里得距离非常相似，因为它计算两点之间的最短线。主要区别在于不可能有直线，因为这里的假设是两点在一个球面上。
