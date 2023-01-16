@@ -11,7 +11,7 @@ st.set_page_config(
     layout="wide"
 )
 st.title("Trees Case")
-df = pd.read_csv("01-Basics/data/trees.csv")
+df = pd.read_csv("data/trees.csv")
 
 # 2、侧边栏：根据字段caretaker过滤数据
 owners = st.sidebar.multiselect(

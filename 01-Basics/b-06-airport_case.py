@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import requests
 from streamlit_lottie import st_lottie
-
+# pip install streamlit_lottie
 st.header("Airport Example")
 st.subheader("根据机场所在的经纬度，计算两两之间的距离")
 
