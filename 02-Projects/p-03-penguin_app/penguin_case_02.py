@@ -109,17 +109,17 @@ with st.form('user_input'):
         # 将 island 和 sex 转换 one-hot
         island_Biscoe, island_Dream, island_Torgersen = 0, 0, 0
         if island == 'Biscoe':
-        island_Biscoe = 1
+            island_Biscoe = 1
         elif island == 'Dream':
-        island_Dream = 1
+            island_Dream = 1
         elif island == 'Torgerson':
-        island_Torgersen = 1
+            island_Torgersen = 1
 
         sex_female, sex_male = 0, 0
         if sex == 'Female':
-        sex_female = 1
+            sex_female = 1
         elif sex == 'Male':
-        sex_male = 1
+            sex_male = 1
 
         # 将所有特征合并起来
         temp_feature = [bill_length, bill_depth, flipper_length, body_mass, island_Biscoe, island_Dream, island_Torgersen,
