@@ -33,7 +33,7 @@ if uploader_file is None:
         model = pickle.load(file)
         st.write("### rfc model : \n", model)
     # 加载标签名称
-    with open("p-03-penguin_app/label_names.pickle", "rb") as file:
+    with open("02-Projects/p-03-penguin_app/label_names.pickle", "rb") as file:
         label_names = pickle.load(file)
         st.write("### label names : \n", label_names)
 else:
