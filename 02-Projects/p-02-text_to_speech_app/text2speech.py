@@ -36,7 +36,7 @@ with c2:
             # 读取 huggingface 中的 token
             api_token = "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"
             # API key
-            headers = {"Authorization": f"bearer {api_token}"}
+            headers = {"Authorization": f"Bearer {api_token}"}
             API_URL = ("https://api-inference.huggingface.co/models/facebook/wav2vec2-base-960h")
 
             def query(data):
