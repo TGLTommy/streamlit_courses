@@ -34,8 +34,15 @@
 ### 模块二：streamlit + 机器学习/深度学习 实战案例
 
 - **案例1 : 动物图片分类案例**
+
+    [案例1-APP测试链接](https://tommyta-02-projectsp-01-animal-appanimal-classification-imdsjm.streamlit.app/)
+
 - **案例2 : 语音转文本案例**
+    
+    [案例2-APP测试链接](https://tommytang-02-projectsp-02-text-to-speech-apptext2speech-0wbojm.streamlit.app/)
+
 - **案例3 : 企鹅种类分类案例**
 
+    [案例3-APP测试链接](https://tommytang930-02-projectsp-03-penguin-apppenguin-case-02-dlw9u9.streamlit.app/)
 
 
