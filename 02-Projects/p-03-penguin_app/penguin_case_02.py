@@ -102,37 +102,34 @@ with st.form('user_input'):
         label = "Body Mass (g) ",
         min_value = 0
     )
-
-    # * 提交按钮
-    submitted = st.form_submit_button('Submit')
+    # 提交按钮
+    submitted = st.form_submit_button('提交: 进行类别预测')
     if submitted:
         st.write("### 用户输入的特征数据：{}".format([island, sex, bill_depth, bill_length, flipper_length, body_mass]))
+        # 将 island 和 sex 转换 one-hot
+        island_Biscoe, island_Dream, island_Torgersen = 0, 0, 0
+        if island == 'Biscoe':
+        island_Biscoe = 1
+        elif island == 'Dream':
+        island_Dream = 1
+        elif island == 'Torgerson':
+        island_Torgersen = 1
 
+        sex_female, sex_male = 0, 0
+        if sex == 'Female':
+        sex_female = 1
+        elif sex == 'Male':
+        sex_male = 1
 
-# 将 island 和 sex 转换 one-hot
-island_Biscoe, island_Dream, island_Torgersen = 0, 0, 0
-if island == 'Biscoe':
-    island_Biscoe = 1
-elif island == 'Dream':
-    island_Dream = 1
-elif island == 'Torgerson':
-    island_Torgersen = 1
+        # 将所有特征合并起来
+        temp_feature = [bill_length, bill_depth, flipper_length, body_mass, island_Biscoe, island_Dream, island_Torgersen,
+                    sex_female, sex_male]
 
-sex_female, sex_male = 0, 0
-if sex == 'Female':
-    sex_female = 1
-elif sex == 'Male':
-    sex_male = 1
+        # 模型预测
+        new_prediction = model.predict([temp_feature])
 
-# 将所有特征合并起来
-temp_feature = [bill_length, bill_depth, flipper_length, body_mass, island_Biscoe, island_Dream, island_Torgersen,
-                sex_female, sex_male]
+        # 预测的企鹅类别
+        predict_species = label_names[new_prediction][0]
 
-# 模型预测
-new_prediction = model.predict([temp_feature])
-
-# 预测的企鹅类别
-predict_species = label_names[new_prediction][0]
-
-# 根据模型的特征重要性输出，绘制特征：bill length, bill depth, flipper length 的直方图
-st.subheader("预测的企鹅类别是：{}".format(predict_species))
+        # 根据模型的特征重要性输出，绘制特征：bill length, bill depth, flipper length 的直方图
+        st.subheader("预测的企鹅类别是：{}".format(predict_species))
