@@ -65,7 +65,7 @@ else:
     plt.ylabel('Feature')
     plt.tight_layout()
     fig.savefig('model_feature_importance.png')
-    st.image("p-03-penguin_app/model_feature_importance.png")
+    st.image("02-Projects/p-03-penguin_app/model_feature_importance.png")
 
 # 模型预测
 # 用户输入特征数据
