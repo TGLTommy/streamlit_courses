@@ -14,8 +14,9 @@ def load_lottieurl(url:str):
         return None
     return r.json()
 
-airplane_gif = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_SNKC9d.json")
+airplane_gif = load_lottieurl("https://assets6.lottiefiles.com/packages/lf20_mDnmhAgZkb.json")
 st_lottie(airplane_gif, speed=1.5, height=200, width=200)
+# 动态图下载：https://lottiefiles.com/
 
 # 2. 输入密码验证
 st.markdown("### 2. 输入密码验证")
