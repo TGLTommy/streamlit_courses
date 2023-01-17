@@ -54,7 +54,7 @@ with c2:
             result = data.values()
             text_value = next(iter(result)).lower()
             st.markdown("- **转换结果如下:**")
-            st.info(text_value)
+            a
 
             # 下载转换后的文本
             st.download_button(

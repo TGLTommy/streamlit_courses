@@ -9,12 +9,12 @@ import pickle
 st.title("*** 企鹅(Penguin)分类案例 ***")
 
 # 加载模型
-with open("rfc_model.pickle", "rb") as file:
+with open("02-Projects/p-03-penguin_app/rfc_model.pickle", "rb") as file:
     rfc_model = pickle.load(file)
     st.write("### rfc model : \n", rfc_model)
 
 # 加载标签名称
-with open("label_names.pickle", "rb") as file:
+with open("02-Projects/p-03-penguin_app/label_names.pickle", "rb") as file:
     label_names = pickle.load(file)
     st.write("### label names : \n", label_names)
 
